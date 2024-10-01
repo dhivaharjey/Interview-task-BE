@@ -10,10 +10,12 @@ import { fileURLToPath } from "url";
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({ origin: "https://intern-task-react.netlify.app/", credentials: true })
+);
 app.use(express.json());
-// app.use(cookieParser());
-// app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
 connectDb();
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
