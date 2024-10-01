@@ -109,7 +109,6 @@ const employeeValidationSchema = Joi.object({
   image: Joi.string()
     .optional()
     .custom((value, helpers) => {
-      // Check the file extension
       const fileExtension = value.split(".").pop().toLowerCase();
       if (!["png", "jpeg"].includes(fileExtension)) {
         return helpers.message("Image must be a valid png or jpeg file");
